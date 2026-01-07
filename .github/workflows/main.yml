@@ -7,9 +7,9 @@ jobs:
   example-job:
     runs-on: ubuntu-latest
     steps:
-      - name: print hello with name 
+      - name: 1/ print hello with name 
         run: echo "hello oussama 47"
-      - name: checkout repo
+      - name: 2/ checkout repo
         uses: actions/checkout@v6.0.1
-      - name: print repo content
+      - name: 3/ print repo content
         run: ls -la
