@@ -1,0 +1,15 @@
+name: testgitaction1
+on:
+  push:
+    branches:
+      - main
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print hello with name 
+        run: echo "hello oussama 47"
+      - name: checkout repo
+        uses: actions/checkout@v6.0.1
+      - name: print repo content
+        run: ls -la
