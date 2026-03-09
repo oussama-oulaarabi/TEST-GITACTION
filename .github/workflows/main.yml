@@ -2,10 +2,9 @@ name: myworkfloaw
 on:
  push:
    branches: [main/* , main ,master/**]
-   branches-ignore:
-     - master1
    paths:
      - "release/**/*"
+     - "test1.txt"
 jobs:
   build:
     runs-on: ubuntu-latest
