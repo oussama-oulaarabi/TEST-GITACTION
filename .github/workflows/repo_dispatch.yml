@@ -9,6 +9,4 @@ jobs:
             - name: Print event payload
               run: |
                   echo "Event type: ${{ github.event.action }}"
-                  echo "Repository: ${{ github.repository }}"
-                  echo "Sender: ${{ github.event.sender.login }}"
                   echo "Custom data: ${{ toJson(github.event.client_payload) }}"
