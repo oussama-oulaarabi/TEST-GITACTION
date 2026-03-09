@@ -1,4 +1,5 @@
 name: workflow-dispatcher
+
 on:
   workflow_dispatch:
     inputs:
@@ -11,29 +12,39 @@ on:
           - docker
           - jenkins
           - kubernetes
+
       input2:
         description: 'Input 2'
         required: false
         default: true
         type: boolean
+
       input3:
         description: 'Input 3'
         required: true
         default: oussama
         type: string
+
       input4:
-        description: 'Input 4'
+        description: 'Choose environment'
         required: true
         type: environment
+
 jobs:
   example-job:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.input4 }}
+
     steps:
-      - name: Print Inputs
+      - name: Print selected inputs
         run: |
-          echo "Input 1: ${{ github.event.inputs.input1 }}"
-          echo "Input 2: ${{ github.event.inputs.input2 }}"
-          echo "Input 3: ${{ github.event.inputs.input3 }}"
-          echo "Input 4: ${{ github.event.inputs.input4.first_name }}"
-          echo "Input 4: ${{ github.event.inputs.input4.last_name }}"
-          echo "Input 4: ${{ github.event.inputs.input4.age }}"
+          echo "Input 1: ${{ inputs.input1 }}"
+          echo "Input 2: ${{ inputs.input2 }}"
+          echo "Input 3: ${{ inputs.input3 }}"
+          echo "Selected environment: ${{ inputs.input4 }}"
+
+      - name: Print environment variables
+        run: |
+          echo "FIRST_NAME: ${{ vars.first_name }}"
+          echo "LAST_NAME: ${{ vars.last_name }}"
+          echo "AGE: ${{ vars.age }}"
