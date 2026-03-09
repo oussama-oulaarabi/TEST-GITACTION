@@ -1,19 +1,6 @@
 name: myworkfloaw
 on:
- push:
-   branches: [main/* , main ,master/**]
-   paths:
-     - "release/**/*"
-     - "test1.txt"
-   tags:
-     - "v1"
- pull_request:
-   branches:
-     - main
-   paths: ["release/**"]
-   types:
-     - assigned
-     - auto_merge_enabled
+  cron: '*/2 * * * *'
    
 jobs:
   build:
@@ -21,6 +8,7 @@ jobs:
     steps:
       - name: step1
         run: echo "hello oussama this work "
+        run: echo {{toJson(github.event.schedule)}}
       - name: step2
         run: echo "${{toJson(github.actor)}}"
       
