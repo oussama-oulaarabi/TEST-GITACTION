@@ -5,6 +5,8 @@ on:
    paths:
      - "release/**/*"
      - "test1.txt"
+   tags:
+     - "v1"
 jobs:
   build:
     runs-on: ubuntu-latest
