@@ -1,6 +1,7 @@
 name: myworkfloaw
 on:
-  cron: '*/2 * * * *'
+  schedule:
+    - cron: '*/2 * * * *'
    
 jobs:
   build:
