@@ -1,15 +1,16 @@
-name: testgitaction1
+name: myworkfloaw
 on:
-  push:
-    branches:
-      - main
+ push:
+   branches: [main/* , main ,master/**]
+   branches-ignore:
+     - master1
+   paths:
+     - "release/**/*"
 jobs:
-  example-job:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: 1/ print hello with name 
-        run: echo "hello oussama 47"
-      - name: 2/ checkout repo
-        uses: actions/checkout@v6.0.1
-      - name: 3/ print repo content
-        run: ls -la
+      - name: step1
+        run: echo "hello oussama this work "
+      
+    
